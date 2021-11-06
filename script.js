@@ -1,7 +1,7 @@
 $(document).ready(onReady);
 
 let employees = [];
-let deleteButton = $('.deleteButton')
+
 
 function onReady(){
     renderEmployeeData(employees);
@@ -13,7 +13,7 @@ function onReady(){
 function renderEmployeeData(empToRender){
     // empty the table body
     $('#tableBody').empty();
-
+    let deleteBut = $('.deleteButton');
     // loop through through the empToRender parameter and create new table row
     for (let employee of empToRender) {
         let newTableRow = `
@@ -23,6 +23,7 @@ function renderEmployeeData(empToRender){
             <td>${employee.id}</td>
             <td>${employee.title}</td>
             <td>${employee.annualSalary}</td>
+            <td>${deleteBut.append()}</td>
         </tr>
         `
         // append the new row to the table body
@@ -50,7 +51,6 @@ function calculateTotalCost(salariesToSum){
     // return sum
     return sum;
 };// end calculateTotalCost
-
 
 
 function handleOnClicks(){
