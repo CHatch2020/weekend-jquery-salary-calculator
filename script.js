@@ -3,8 +3,10 @@ $(document).ready(onReady);
 let employees = [];
 
 
+
 function onReady(){
     renderEmployeeData(employees);
+    //renderTotalCost(employees);
     $('#submitButton').on('click', handleOnClicks)
     
     
@@ -16,7 +18,7 @@ function renderEmployeeData(empToRender){
     $('#tableBody').empty();
 
     // loop through through the empToRender parameter and create new table row
-    for (const employee of empToRender) {
+    for (let employee of empToRender) {
         let newTableRow = `
         <tr>
             <td>${employee.first}</td>
@@ -31,6 +33,27 @@ function renderEmployeeData(empToRender){
     }
     
 };// end renderEmployeeData
+
+
+function renderTotalCost(salariesToSum){
+let totalPrice = calculateTotalCost(salariesToSum)
+let newTotal = $('#totalCost');
+newTotal.empty();
+newTotal.append(totalPrice);
+};// end renderTotalCost
+
+function calculateTotalCost(salariesToSum){
+    // get total sum to equal zero
+    let sum = 0;
+    
+    // loop through employees and add annual salaries to sum
+    for (let salaries of salariesToSum) {
+        sum += salaries.annualSalary;
+    };
+    // return sum
+    return sum;
+};// end calculateTotalCost
+
 
 
 function handleOnClicks(){
@@ -59,4 +82,7 @@ $('#employeeTitle').val('');
 $('#annualSalary').val('');
 // call render function
 renderEmployeeData(employees);
-}
+renderTotalCost(employees);
+};// end handleOnClicks
+
+
