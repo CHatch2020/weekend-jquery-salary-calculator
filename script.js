@@ -1,14 +1,11 @@
 $(document).ready(onReady);
 
 let employees = [];
-
-
+let deleteButton = $('.deleteButton')
 
 function onReady(){
     renderEmployeeData(employees);
-    //renderTotalCost(employees);
-    $('#submitButton').on('click', handleOnClicks)
-    
+    $('#submitButton').on('click', handleOnClicks);
     
 };// end onReady
 
@@ -36,7 +33,7 @@ function renderEmployeeData(empToRender){
 
 
 function renderTotalCost(salariesToSum){
-let totalPrice = calculateTotalCost(salariesToSum)
+let totalPrice = calculateTotalCost(salariesToSum) / 12;
 let newTotal = $('#totalCost');
 newTotal.empty();
 newTotal.append(totalPrice);
@@ -49,6 +46,8 @@ function calculateTotalCost(salariesToSum){
     // loop through employees and add annual salaries to sum
     for (let salaries of salariesToSum) {
         sum += salaries.annualSalary;
+        
+        
     };
     // return sum
     return sum;
@@ -84,5 +83,4 @@ $('#annualSalary').val('');
 renderEmployeeData(employees);
 renderTotalCost(employees);
 };// end handleOnClicks
-
 
