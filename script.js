@@ -46,8 +46,6 @@ function calculateTotalCost(salariesToSum){
     // loop through employees and add annual salaries to sum
     for (let salaries of salariesToSum) {
         sum += salaries.annualSalary;
-        
-        
     };
     // return sum
     return sum;
