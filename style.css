@@ -7,11 +7,29 @@ table {
     border-collapse: collapse;
 }
 
+th {
+    background-color: beige;
+}
+
+tr:nth-child(even) {
+    background-color: azure;
+}
+
+input, button {
+    border: 2px solid darkgray;
+}
+
+h3 {
+    text-align: center;
+}
+
 .title {
     background-color: gray;
     text-align: center;
     padding: 40px;
     margin-top: 0px;
+    color: antiquewhite;
+    
 }
 
 body {
