@@ -21,7 +21,7 @@ function renderEmployeeData(empToRender){
         <tr>
             <td>${employee.first}</td>
             <td>${employee.last}</td>
-            <td>${employee.id}</td>
+            <td class="dataId">${employee.id}</td>
             <td>${employee.title}</td>
             <td>${employee.annualSalary}</td>
             <td><button id="deleteButton">Delete</button></td>
@@ -86,8 +86,9 @@ renderTotalCost(employees);
 
 
 function deleteEmployee(){
-    let index = $('#deleteButton').index(this);
-    employees.splice(index);
+    let val = $(this).closest('tr').find('.dataId').text();
+    index = employees.findIndex(function(item) {return item.id == val})
+    employees.splice(index, 1);
 
     $(this).closest('tr').remove();
 };// end deleteEmployee
