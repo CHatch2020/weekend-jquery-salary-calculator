@@ -6,6 +6,7 @@ let employees = [];
 function onReady(){
     renderEmployeeData(employees);
     $('#submitButton').on('click', handleOnClicks);
+    $('#tableBody').on('click', '#deleteButton', deleteEmployee);
     
 };// end onReady
 
@@ -23,11 +24,12 @@ function renderEmployeeData(empToRender){
             <td>${employee.id}</td>
             <td>${employee.title}</td>
             <td>${employee.annualSalary}</td>
-            <td>${deleteBut.append()}</td>
+            <td><button id="deleteButton">Delete</button></td>
         </tr>
         `
         // append the new row to the table body
         $('#tableBody').append(newTableRow);
+        $('#employee.delete').on('click', deleteEmployee)
     }
     
 };// end renderEmployeeData
@@ -81,4 +83,12 @@ $('#annualSalary').val('');
 renderEmployeeData(employees);
 renderTotalCost(employees);
 };// end handleOnClicks
+
+
+function deleteEmployee(){
+    let index = $('#deleteButton').index(this);
+    employees.splice(index);
+
+    $(this).closest('tr').remove();
+};// end deleteEmployee
 
