@@ -17,6 +17,7 @@ function renderEmployeeData(empToRender){
     let deleteBut = $('.deleteButton');
     // loop through through the empToRender parameter and create new table row
     for (let employee of empToRender) {
+        // create the new row
         let newTableRow = `
         <tr>
             <td>${employee.first}</td>
@@ -29,19 +30,25 @@ function renderEmployeeData(empToRender){
         `
         // append the new row to the table body
         $('#tableBody').append(newTableRow);
+        // call the deleteEmployee function
         $('#employee.delete').on('click', deleteEmployee)
     }
     
 };// end renderEmployeeData
 
-
+// function to render the total cost
 function renderTotalCost(salariesToSum){
+    // call the calculate function and divide it by 12
 let totalPrice = calculateTotalCost(salariesToSum) / 12;
+// grab and clear the spot to place this sum
 let newTotal = $('#totalCost');
+// empty it
 newTotal.empty();
+// append the total price
 newTotal.append(totalPrice);
 };// end renderTotalCost
 
+// create function to calculate total cost
 function calculateTotalCost(salariesToSum){
     // get total sum to equal zero
     let sum = 0;
@@ -54,7 +61,7 @@ function calculateTotalCost(salariesToSum){
     return sum;
 };// end calculateTotalCost
 
-
+// function to handle on the click
 function handleOnClicks(){
 // grab user values
 let newFirst = $('#firstName').val();
@@ -84,12 +91,16 @@ renderEmployeeData(employees);
 renderTotalCost(employees);
 };// end handleOnClicks
 
-
+// function for deleting employees
 function deleteEmployee(){
+    // assign a variable to get the id from the closest tr on the click
     let val = $(this).closest('tr').find('.dataId').text();
+    // find the index and return that 
     index = employees.findIndex(function(item) {return item.id == val})
+    // splice the row 
     employees.splice(index, 1);
 
+    // remove the row
     $(this).closest('tr').remove();
 };// end deleteEmployee
 
