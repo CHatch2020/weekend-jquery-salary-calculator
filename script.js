@@ -120,6 +120,8 @@ function deleteEmployee(){
 
     // remove the row
     $(this).closest('tr').remove();
+    renderEmployeeData(employees);
+    renderTotalCost(employees);
 };// end deleteEmployee
 
 
