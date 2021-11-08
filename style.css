@@ -49,3 +49,9 @@ body {
 .everything {
     margin: 10px;
 }
+
+.redBackground {
+    display: table;
+    background-color: red;
+    color: beige;
+}

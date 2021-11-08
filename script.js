@@ -38,13 +38,24 @@ function renderEmployeeData(empToRender){
 // function to render the total cost
 function renderTotalCost(salariesToSum){
     // call the calculate function and divide it by 12
-let totalPrice = calculateTotalCost(salariesToSum) / 12;
+let totalMonthy = calculateTotalCost(salariesToSum) / 12;
+
 // grab and clear the spot to place this sum
 let newTotal = $('#totalCost');
+// round the totalMonthly
+let roundedTotalMonthly = (totalMonthy).toFixed(2);
 // empty it
 newTotal.empty();
-// append the total price
-newTotal.append(totalPrice);
+// append the total monthly
+newTotal.append(roundedTotalMonthly);
+
+// check if total monthly > 20,000; add red background if yes
+if (roundedTotalMonthly > 20000) {
+    $('#money').addClass('redBackground');
+} else {
+    $('#money').removeClass('redBackground');
+}
+
 };// end renderTotalCost
 
 // create function to calculate total cost
@@ -59,6 +70,7 @@ function calculateTotalCost(salariesToSum){
     // return sum
     return sum;
 };// end calculateTotalCost
+
 
 // function to handle on the click
 function handleOnClicks(){
