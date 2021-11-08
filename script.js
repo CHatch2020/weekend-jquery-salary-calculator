@@ -42,10 +42,13 @@ let totalMonthy = calculateTotalCost(salariesToSum) / 12;
 
 // grab and clear the spot to place this sum
 let newTotal = $('#totalCost');
+
 // round the totalMonthly
 let roundedTotalMonthly = (totalMonthy).toFixed(2);
+
 // empty it
 newTotal.empty();
+
 // append the total monthly
 newTotal.append(roundedTotalMonthly);
 
@@ -55,7 +58,6 @@ if (roundedTotalMonthly > 20000) {
 } else {
     $('#money').removeClass('redBackground');
 }
-
 };// end renderTotalCost
 
 // create function to calculate total cost
