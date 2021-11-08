@@ -7,7 +7,6 @@ function onReady(){
     renderEmployeeData(employees);
     $('#submitButton').on('click', handleOnClicks);
     $('#tableBody').on('click', '#deleteButton', deleteEmployee);
-    
 };// end onReady
 
 
@@ -78,8 +77,13 @@ let newEmployee = {
     title: newEmployeeTitle,
     annualSalary: Number(newAnnualSalary),
 };
-// push new object to employees array
-employees.push(newEmployee);
+// push new object to employees array if fields are full
+if (newFirst === '' || newLast === '' || newEmployeeId === 0 || newEmployeeTitle === '' || newAnnualSalary === '') {
+    alert('Fields are empty')
+} else {
+    employees.push(newEmployee);
+};
+
 //empty variables
 $('#firstName').val('');
 $('#lastName').val('');
@@ -103,4 +107,5 @@ function deleteEmployee(){
     // remove the row
     $(this).closest('tr').remove();
 };// end deleteEmployee
+
 

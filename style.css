@@ -9,14 +9,24 @@ table {
 
 th {
     background-color: beige;
+    color: black;
 }
 
 tr:nth-child(even) {
     background-color: azure;
 }
 
+tr:nth-child(odd) {
+    background-color: gray;
+    color: white;
+}
+
 input, button {
-    border: 2px solid darkgray;
+    border-color:darkgray;
+}
+
+input:hover, button:hover {
+    background-color: beige;
 }
 
 h3 {
