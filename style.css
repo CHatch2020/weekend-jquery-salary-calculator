@@ -29,6 +29,15 @@ input:hover, button:hover {
     background-color: beige;
 }
 
+h2 {
+    display: table;
+    background-color: gray;
+    border: 3px solid black;
+    color: lightgreen;
+    text-shadow: 1px 1px 1px black,
+                 2px 2px 1px black;
+}
+
 h3 {
     text-align: center;
 }
@@ -38,12 +47,18 @@ h3 {
     text-align: center;
     padding: 40px;
     margin-top: 0px;
-    color: antiquewhite;
-    
+    border: 5px solid black;
+    color: lightgreen;
+    text-shadow: 1px 1px 1px black,
+                 2px 2px 1px black;
 }
 
 body {
     margin: 0;
+    background-image: linear-gradient(45deg, antiquewhite, white, mediumspringgreen);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
 }
 
 .everything {
@@ -53,5 +68,6 @@ body {
 .redBackground {
     display: table;
     background-color: red;
-    color: beige;
+    color: salmon;
+    
 }
